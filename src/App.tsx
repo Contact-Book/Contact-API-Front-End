@@ -1,5 +1,15 @@
+import Routes from './routes';
+import Head from './components/Head';
+import { GlobalStyle } from './Global';
+
 function App() {
-  return <h1>test</h1>;
+  return (
+    <>
+      <Head />
+      <GlobalStyle />
+      <Routes />
+    </>
+  );
 }
 
 export default App;
