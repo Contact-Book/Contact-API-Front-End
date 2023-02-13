@@ -8,6 +8,10 @@ export const InputComponent = styled.input`
 
   background: transparent;
 
-  border: 0.5px solid #fff;
+  border: 0.5px solid #354247;
   border-radius: 30px;
+
+  ::placeholder {
+    color: #4b5e65;
+  }
 `;

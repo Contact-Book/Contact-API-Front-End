@@ -1,28 +1,24 @@
-import Input from '../Input';
 import { FormComponent } from './style';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Form = (): JSX.Element => {
+import { IProvider } from '../../interfaces';
+import { useContext } from 'react';
+import { AppContext } from '../../context';
+
+export interface ISubmitData {
+  email: string;
+  password: string;
+}
+
+const Form = ({ children }: IProvider): JSX.Element => {
+  const { handleSubmit } = useContext(AppContext);
+
+  const onSubmit = async (data: ISubmitData) => {
+    //MAKE THE REQUEST
+    console.log(data);
+  };
+
   return (
-    <FormComponent>
-      <Input
-        inputFor={'Email'}
-        placeExemplo={'Email'}
-        description={'Email'}
-        inputType={'text'}
-        // object={}
-        // register={}
-      ></Input>
-      <Input
-        inputFor={'Password'}
-        placeExemplo={'Password'}
-        description={'Password'}
-        inputType={'text'}
-        // object={}
-        // register={}
-      ></Input>
-      <button>Sing in</button>
-    </FormComponent>
+    <FormComponent onSubmit={handleSubmit(onSubmit)}>{children}</FormComponent>
   );
 };
 

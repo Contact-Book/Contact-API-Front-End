@@ -1,3 +1,4 @@
+import { UseFormRegister } from 'react-hook-form';
 import { InputComponent } from './style';
 
 export interface IInputProps {
@@ -5,8 +6,8 @@ export interface IInputProps {
   placeExemplo?: string;
   description?: string;
   inputType?: string;
-  // object: string;
-  // register?: UseFormRegister<any>;
+  object: string;
+  register?: UseFormRegister<any>;
 }
 
 const Input = ({
@@ -14,16 +15,16 @@ const Input = ({
   placeExemplo,
   description,
   inputType,
-}: // object,
-// register,
-IInputProps) => {
+  object,
+  register,
+}: IInputProps) => {
   return (
     <>
       <label htmlFor={inputFor}>{description}</label>
       <InputComponent
         placeholder={placeExemplo}
         type={inputType}
-        // {...register!(object!)}
+        {...register!(object!)}
       ></InputComponent>
     </>
   );
